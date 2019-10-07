@@ -1,0 +1,15 @@
+.entireform {
+    /* display: flex; */
+    padding: 0px 20px;
+    /* border: 1px solid black; */
+    /* border-radius: 8px; */
+}
+
+.addrecord {
+    padding: 0px 20px;
+}
+
+.forbuttons {
+    display: inline-block;
+    padding: 5px;
+}

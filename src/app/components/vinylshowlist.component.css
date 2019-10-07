@@ -1,0 +1,13 @@
+h1, h3, .listofVinylRecords {
+    padding: 0px 20px;
+}
+
+.listofVinylRecords {
+    /* display: flex; */
+    margin: 2vh 0vw;
+    padding: 2vh 2vw;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 60vw;
+    height: auto;
+}

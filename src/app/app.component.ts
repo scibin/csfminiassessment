@@ -31,8 +31,6 @@ export class AppComponent {
 
     // Sorts the list everytime a new entry is added
     this.vinylListSorted = this.vinylList.sort(this.compare);
-
-    // Resets the form
     
     // Debugging tools
     // console.info(typeof this.vinylList);

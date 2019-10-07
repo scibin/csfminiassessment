@@ -1,28 +1,74 @@
-<h1>Add Vinyl</h1>
+<mat-toolbar color="primary" class="header">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+        <h2>Mini Assessment</h2>
+        <!-- STILL AN ICON ONLY! -->
+        <mat-icon class="share-icon" aria-hidden="false" aria-label="Share icon">share</mat-icon>
+    </mat-toolbar-row>
+</mat-toolbar>
 
-<form class="entireform" #form="ngForm" (ngSubmit)="addVinyl(form)">
-    <div class = 'aName'>
+<br>
+
+<h2 class="addrecord">Add Vinyl Record</h2>
+<form class="entireform" #form="ngForm" (ngSubmit)="addVinyl(form)"
+fxLayout="column" fxLayoutAlign="space-evenly start">
+    <div class = 'cfName'>
         <label for="aName">Album name: </label>
-        <input type="text" id="aName" name="aName" ngModel required>
+        <mat-form-field>
+            <input type="text" matInput name="aName" 
+            #vinylName="ngModel" ngModel required>
+    
+            <mat-error *ngIf="vinylName.invalid && (vinylName.dirty || vinylName.touched)">
+                <div class="errMsg" *ngIf="vinylName.errors['required']">
+                    <span>Please add the name of the album!</span>
+                </div>
+            </mat-error>
+        </mat-form-field>
     </div>
 
-    <div class = 'aArtist'>
+    <div class = 'cfArtist'>
         <label for="aArtist">Artist: </label>
-        <input type="text" id="aArtist" name="aArtist" ngModel required>
+        <mat-form-field>
+            <input type="text" matInput name="aArtist" 
+            #artistName="ngModel" ngModel required>
+
+            <mat-error *ngIf="artistName.invalid && (artistName.dirty || artistName.touched)">
+                <div class="errMsg" *ngIf="artistName.errors['required']">
+                    <span>Please add the artist's name!</span>
+                </div>
+            </mat-error>
+        </mat-form-field>
     </div>
 
-    <div class = 'aRating'>
+    <div class = 'cfRating'>
         <label for="aRating">Rating: </label>
-        <input type="number" min="0" max="10" step="0.5" id="aRating" name="aRating" ngModel>
+        <mat-form-field>
+            <input matInput type="number" min="0" max="10" step="0.5" 
+            id="aRating" name="aRating" 
+            [disabled]="form.invalid" ngModel>
+        </mat-form-field>
+
     </div>
 
-    <div class = 'aLink'>
-        <label for="aLink">URL of album art: </label>            
-        <input type="text" id="aLink" name="aLink" ngModel>
+    <div class = 'cfLink'>
+        <label for="aLink">URL of album art: </label>
+        <mat-form-field>
+            <input matInput type="text" id="aLink" name="aLink" 
+            [disabled]="form.invalid" ngModel>
+        </mat-form-field>           
+        
     </div>
 
-    <button type="submit">Add Vinyl information</button>
+    <div class="forbuttons">
+        <button type="submit" [disabled]="form.invalid"
+        mat-raised-button color="primary">Add Vinyl Information</button>
+        <button type="reset" [disabled]="form.invalid"
+        mat-raised-button color="basic">Reset Fields</button>
+    </div>
 </form>
+
+
+
+<!-- ORIGINAL HTML -->
 
 <!-- <form>
     <div class=entireform>
@@ -49,3 +95,35 @@
         <button type="submit">Add Vinyl information</button>
     </div>
 </form> -->
+
+
+<!-- RATING SLIDER
+
+<mat-card class="result">
+    <mat-card-content>
+      <mat-slider
+          class="example-margin"
+          [disabled]="form.invalid"
+          [max]="0" 
+          [min]="10"
+          [step]="0.5"
+          [tickInterval]="0.5"
+          [(ngModel)]="value"
+          name="exampleslider">
+      </mat-slider>
+    </mat-card-content>
+  </mat-card> -->
+
+
+
+  
+<!-- Old code for ngForm input (before material) -->
+
+    <!-- <input type="text" id="aArtist" name="aArtist" 
+#artistName="ngModel" ngModel required>
+
+<div *ngIf="artistName.invalid && (artistName.dirty || artistName.touched)">
+    <div class="errMsg" *ngIf="artistName.errors['required']">
+        <span>Please add the artist's name!</span>
+    </div>
+</div> -->

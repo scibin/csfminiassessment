@@ -5,23 +5,26 @@
 </div>
 
 <div *ngFor="let i of listofVinylRecords">
-    <div class="listofVinylRecords">
-        <div class="albumName">
-            <strong>{{ i.aName }}</strong>
-        </div>
+    <div class="listofVinylRecords" 
+    fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="textinfo">
+            <div class="albumName">
+                    <strong>Album: {{ i.aName }}</strong>
+                </div>
+                
+                <div class="albumArtist">
+                    <span><i>Artist: {{ i.aArtist }}</i></span>
+                </div>
         
-        <div class="albumArtist">
-            <span><i>{{ i.aArtist }}</i></span>
+                <div class="albumRating">
+                    <span>Rating: {{ i.aRating }}</span>
+                </div>
         </div>
 
-        <div class="albumRating">
-            <span>{{ i.aRating }}</span>
-        </div>
-
-        <div class="albumArt">
+        <div class="albumArt" fxLayout="row" fxLayoutAlign="space-between center">
             <img src="{{ i.aLink }}" 
             alt="" 
-            height="100" width="100"> 
+            height="75px" width="75px">
         </div>
 
     </div>
