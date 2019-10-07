@@ -1,0 +1,28 @@
+<h1>Vinyl database</h1>
+
+<div *ngIf="listofVinylRecords.length === 0">
+    <h3>No vinyl records yet!</h3> 
+</div>
+
+<div *ngFor="let i of listofVinylRecords">
+    <div class="listofVinylRecords">
+        <div class="albumName">
+            <strong>{{ i.aName }}</strong>
+        </div>
+        
+        <div class="albumArtist">
+            <span><i>{{ i.aArtist }}</i></span>
+        </div>
+
+        <div class="albumRating">
+            <span>{{ i.aRating }}</span>
+        </div>
+
+        <div class="albumArt">
+            <img src="{{ i.aLink }}" 
+            alt="" 
+            height="100" width="100"> 
+        </div>
+
+    </div>
+</div>
